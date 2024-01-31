@@ -1,4 +1,4 @@
-# JHipster Sample Application
+# JHipster Sample Application - TESTING
 
 ## Prerequisites
 
@@ -18,15 +18,12 @@ npm install
 
 ## Local environment
 
-
 <!-- jhipster-needle-localEnvironment -->
 
 ## Start up
 
-
 <!-- jhipster-needle-startupCommand -->
 
 ## Documentation
-
 
 <!-- jhipster-needle-documentation -->
