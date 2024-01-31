@@ -6,7 +6,7 @@ on:
     types: [opened]
 
 jobs:
-  triage:
+  apply-label:
     runs-on: ubuntu-latest
     steps:
       - name: Label issues and PRs
