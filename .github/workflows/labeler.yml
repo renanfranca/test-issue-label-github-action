@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label issues and PRs
-        uses: github/issue-labeler@v3.3
+        uses: renanfranca/issue-labeler@v3.4.SNAPSHOT
         with:
           configuration-path: .github/labeler.yml
           enable-versioned-regex: 0
