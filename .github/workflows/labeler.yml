@@ -14,23 +14,14 @@ jobs:
         with:
           script: console.log(context)
       - name: Check for existing labels
-        id: label-check
+        id: check-issue-pr-labels
         uses: actions/github-script@v7
         with:
           script: |
             const issue = context.payload.issue;
             const pr = context.payload.pull_request;
-            console.log('issue:', issue);
-            console.log('pr:', pr);
-            console.log('issue || pr:', issue || pr);
-
 
             function hasLabels(obj) {
-              console.log('obj:', obj);
-              console.log('obj.labels:', obj.labels);
-              console.log('Array.isArray(obj.labels)', Array.isArray(obj.labels));
-              console.log('obj.labels.length > 0', obj.labels.length);
-              console.log('return obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0', obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0);
               return obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0;
             }
 
@@ -38,8 +29,10 @@ jobs:
 
             console.log('Label count:', hasLabelsResult ? (issue || pr).labels.length : 0);
             console.log('Has labels:', hasLabelsResult);
+
             return hasLabelsResult;
       - name: Label issues and PRs
+        if: steps.check-issue-pr-labels.outputs.result == 'false'
         uses: github/issue-labeler@v3.4
         with:
           configuration-path: .github/labeler.yml
