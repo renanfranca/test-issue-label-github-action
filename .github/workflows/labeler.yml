@@ -28,7 +28,8 @@ jobs:
               hasLabels = pr.labels && pr.labels.length > 0;
             }
 
-            console.log('Is there any label? '+hasLabels);
+            console.log(hasLabels)
+            console.log('Is there any label? '+hasLabels)
             return hasLabels
       - name: Label issues and PRs
         uses: github/issue-labeler@v3.4
