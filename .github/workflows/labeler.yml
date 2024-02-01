@@ -21,6 +21,7 @@ jobs:
             const issue = context.issue;
             const pr = context.pull_request;
             let hasLabels = false;
+            console.log(hasLabels)
 
             if (issue) {
               hasLabels = issue.labels && issue.labels.length > 0;
