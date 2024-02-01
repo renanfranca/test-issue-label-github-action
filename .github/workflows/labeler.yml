@@ -21,19 +21,22 @@ jobs:
             const issue = context.issue;
             const pr = context.pull_request;
             let hasLabels = false;
-            console.log(hasLabels)
 
             if (issue) {
-              hasLabels = issue.labels && issue.labels.length > 0;
-              console.log(issue.labels.length)
+              if (issue.labels && Array.isArray(issue.labels)) {
+                hasLabels = issue.labels.length > 0;
+                console.log(issue.labels.length);
+              }
             } else if (pr) {
-              hasLabels = pr.labels && pr.labels.length > 0;
-              console.log(pr.labels.length)
+              if (pr.labels && Array.isArray(pr.labels)) {
+                hasLabels = pr.labels.length > 0;
+                console.log(pr.labels.length);
+              }
             }
 
-            console.log(hasLabels)
-            console.log('Is there any label? '+hasLabels)
-            return hasLabels
+            console.log(hasLabels);
+            console.log('Is there any label? ' + hasLabels);
+            return hasLabels;
       - name: Label issues and PRs
         uses: github/issue-labeler@v3.4
         with:
