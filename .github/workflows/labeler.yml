@@ -25,8 +25,10 @@ jobs:
 
             if (issue) {
               hasLabels = issue.labels && issue.labels.length > 0;
+              console.log(issue.labels.length)
             } else if (pr) {
               hasLabels = pr.labels && pr.labels.length > 0;
+              console.log(pr.labels.length)
             }
 
             console.log(hasLabels)
