@@ -20,6 +20,10 @@ jobs:
           script: |
             const issue = context.issue;
             const pr = context.pull_request;
+            console.log('issue:', issue);
+            console.log('pr:', pr);
+            console.log('issue || pr:', issue || pr);
+
 
             function hasLabels(obj) {
               console.log('obj:', obj);
