@@ -22,6 +22,11 @@ jobs:
             const pr = context.pull_request;
 
             function hasLabels(obj) {
+              console.log('obj:', obj);
+              console.log('obj.labels:', obj.labels);
+              console.log('Array.isArray(obj.labels)', Array.isArray(obj.labels));
+              console.log('obj.labels.length > 0', obj.labels.length);
+              console.log('return obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0', obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0);
               return obj.labels && Array.isArray(obj.labels) && obj.labels.length > 0;
             }
 
