@@ -23,9 +23,9 @@ jobs:
             let hasLabels = false;
 
             if (issue) {
-              hasLabels = issue.labels.length > 0;
+              hasLabels = issue.labels && issue.labels.length > 0;
             } else if (pr) {
-              hasLabels = pr.labels.length > 0;
+              hasLabels = pr.labels && pr.labels.length > 0;
             }
 
             return hasLabels
